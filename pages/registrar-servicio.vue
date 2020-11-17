@@ -20,17 +20,23 @@
                 placeholder="Ingrese el nombre del servicio"
               ></b-form-input>
             </b-form-group>
+            
+            <b-form-group id="input-group-100" label="Hora inicio:" label-for="hora_inicio">
+              <b-form-timepicker
+                id="hora_inicio"
+                v-model="servicio.hora_inicio"
+                required
+                placeholder="Ingrese la hora de inicio"
+              ></b-form-timepicker>
+            </b-form-group>
 
-            <b-form-group id="input-group-1" label="Descripción del servicio:" label-for="descripcion">
-              <div>
-                <b-form-textarea
-                  id="descripcion"
-                  v-model="servicio.descripcion"
-                  placeholder="Ingrese la descripción del servicio"
-                  rows="3"
-                  max-rows="6"
-                ></b-form-textarea>
-              </div>
+            <b-form-group id="input-group-200" label="Hora finalización:" label-for="hora_fin">
+              <b-form-timepicker
+                id="hora_fin"
+                v-model="servicio.hora_fin"
+                required
+                placeholder="Ingrese la hora de finalizacion"
+              ></b-form-timepicker>
             </b-form-group>
            
               <div>
@@ -47,7 +53,10 @@
               </div>
 
             <b-form-group label= "Tipo de servicio:">
-              <b-form-select v-model="servicio.tipo_servicio" :options="tipo_servicios"></b-form-select>
+              <div>
+                <b-form-select v-model="servicio.tipo_servicio" :options="tipo_servicio"></b-form-select>
+                <b-button variant="success">Agregar tipo de servicio</b-button>
+              </div>
             </b-form-group>
             <div>
             <b-form-group  id="input-group-5" label="Imagen del servicio:" label-for="imagen">
@@ -84,7 +93,7 @@
               >
               <b-card-body>
                 <b-img id="im" src="" fluid alt="Imagen" variant="success"></b-img> 
-               <b-progress :value="progreso" :max="100" show-progress animated variant="success"></b-progress>
+               <b-progress :value="progreso" :max="100" show-progress animated variant="success"  ></b-progress>
               </b-card-body>
               </b-card>
             </div>

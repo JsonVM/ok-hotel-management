@@ -19,6 +19,22 @@
         >
           Ingresar servicio
         </a>
+        <a
+          href="reservas-servicios"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--green"
+        >
+          ver reservas servicios
+        </a>
+        <a
+          href="reservar-servicio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--green"
+        >
+          reservar servicio
+        </a>
       </div>
     </div>
   </div>

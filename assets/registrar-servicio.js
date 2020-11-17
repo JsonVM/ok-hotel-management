@@ -9,7 +9,8 @@ export default {
       servicio: {
             id:"",
             nombre:"",
-            descripcion: "",
+            hora_inicio:"",
+            hora_fin:"",
             num_personas: "",
             tipo_servicio: null,
             imagen: ""
@@ -28,16 +29,16 @@ export default {
           { item: '20', name: '20' }
         ],
 
-      tipo_servicios:  [
-        {value: null, text:"seleccione el tipo de servicio"},
-        { value: "Entretenimiento", text: "Entretenimiento" },
-        { value: "Ocio", text: "Ocio" },
-        { value: "Evento", text: "Evento" },
-        { value: "Relax", text: "Relax" },
-        { value: "Alimentacion", text: "Alimentacion" }
+      tipo_servicio:  [
+        {value: null, text:"seleccione el tipo de servicio"}/** ,
+        { value: "1", text: "Entretenimiento" },
+        { value: "2", text: "Ocio" },
+        { value: "3", text: "Evento" },
+        { value: "4", text: "Relax" },
+        { value: "5", text: "Alimentacion" }*/
     ],
 
-      fields: ["id","nombre", "descripcion", "num_personas", "tipo_servicio", "imagen"],
+      fields: ["id","nombre", "hora_inicio", "hora_fin", "num_personas","tipo_servicio", "imagen"],
 
       //aqui se almacenan los servicios en forma de lista
       lista_servicios: [{}],
@@ -53,6 +54,7 @@ export default {
    */
   mounted() {
     this.cargar();
+    this.cargarTipoServicios();
   },
   
   methods: {   
@@ -127,12 +129,15 @@ export default {
      */
     vacear(){
         this.servicio = {
-            nombre:"",
-            descripcion: "",
-            nro_personas: "",
-            tipo_servicio: null,
-            imagen: ""
-      };
+          id:"",
+          nombre:"",
+          hora_inicio:"",
+          hora_fin:"",
+          num_personas: "",
+          tipo_servicio: null,
+          imagen: ""
+      }
+      this.imagen = null;
     },
     /**
      *cargar todos los servicios de la DB y listarlos
@@ -144,6 +149,23 @@ export default {
         if (data.ok) {
           this.lista_servicios = data.info
           console.log(this.lista_servicios)
+        }
+        this.mensaje = data.mensaje;
+        console.log(respuesta);
+      }).catch(error => {
+        console.log(this.mensaje = "Ha ocurrido un error")
+      });
+    },
+
+    cargarTipoServicios(){
+      //this.tipo_servicio = null;
+
+      let url = "http://localhost:3001/tipo-servicio";
+      axios.get(url).then(respuesta => {
+        let data = respuesta.data
+        if (data.ok) {
+          this.tipo_servicio = data.info
+          console.log(this.tipo_servicio)
         }
         this.mensaje = data.mensaje;
         console.log(respuesta);
