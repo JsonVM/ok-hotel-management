@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <b-img src="../components/logo_usuario.jpg" fluid alt="Responsive image" width="100" height="100"></b-img>
       <h1 class="title">
          CLIENTES
       </h1>
@@ -53,8 +53,8 @@ export default {}
     Arial,
     sans-serif;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
+  font-weight: 100;
+  font-size: 50px;
   color: #35495e;
   letter-spacing: 1px;
 }

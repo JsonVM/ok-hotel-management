@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <b-img src="../components/logo_habitaciones.png" fluid alt="Responsive image" width="150" height="150"></b-img>
       <h1 class="title">
          HABITACIONES
       </h1>

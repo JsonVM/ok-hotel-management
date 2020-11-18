@@ -25,7 +25,7 @@
                 size="sm"
                 @click="cargarMantenimientosEditar(row)"
                 block
-                variant="danger"
+                variant="outline-success"
                 class="mr-2"
                 >Reservar</b-button
               >
