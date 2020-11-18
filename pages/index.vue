@@ -17,7 +17,7 @@
           rel="noopener noreferrer"
           class="button--green"
         >
-          Ingresar servicio
+          registrar servicio
         </a>
         <a
           href="reservas-servicios"
@@ -34,6 +34,15 @@
           class="button--green"
         >
           reservar servicio
+        </a>
+
+        <a
+          href="insertar-tipo-servicio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--green"
+        >
+          registrar tipo servicio
         </a>
       </div>
     </div>

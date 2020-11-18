@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       reserva_servicio: {
+            id:"",
             cc_cliente:"",
             nombre:"",
             id_servicio:"",
@@ -17,7 +18,7 @@ export default {
 
       cc: "",
 
-      fields: ["cc_cliente", "nombre", "descripcion", "fecha_inicio", "fecha_fin", "imagen"],
+      fields: ["id","cc_cliente", "nombre", "fecha_inicio", "fecha_fin", "hora_inicio","hora_fin", "imagen"],
 
       //aqui se almacenan las reservas de servicios del cliente en forma de lista
       lista_reservas_servicios: [{}],
@@ -43,6 +44,11 @@ export default {
   },
   
   methods: {   
+    cargarImagen({item}){
+      let reserva = this.lista_reservas_servicios.find(reserva_servicio => reserva_servicio.id == item.id);
+      let url = reserva.imagen;
+      window.open(url, "Imagen", "width=1080, height=720");
+  },
 
     /**
      * Se inserta el servicio en la base de datos con los datos suministrados

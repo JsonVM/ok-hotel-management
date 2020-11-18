@@ -22,6 +22,11 @@
             </b-form>
             
             <b-table small responsive hover :items="lista_reservas_servicios" :fields="fields">
+              <template v-slot:cell(imagen)="row">
+                  <div>
+                      <b-button size="sm" @click="cargarImagen(row)" variant="success">imagen</b-button>
+                  </div>
+              </template>
             </b-table>
         </b-card-body>
       </b-card>
