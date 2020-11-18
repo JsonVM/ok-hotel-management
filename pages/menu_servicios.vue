@@ -1,31 +1,48 @@
 <template>
   <div class="container">
     <div>
-       <b-img src="../components/logo_verde.PNG" fluid alt="Responsive image"></b-img>
+       <b-img src="../components/logo_servicios.PNG" fluid alt="Responsive image"></b-img>
       <div class="links">
         <a
-          href="menu_clientes"
+          href="ver_servicios"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
         >
-          Menú clientes
+          Ver servicios
         </a>
         <a
-          href="menu_servicios"
+          href="registrar_servicio"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
         >
-          menú servicios
+          registrar servicio
         </a>
         <a
-          href="menu_habitaciones"
+          href="reservas_servicios"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
         >
-          Menú habitaciones
+          ver reservas servicios
+        </a>
+        <a
+          href="reservar_servicio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--green"
+        >
+          reservar servicio
+        </a>
+
+        <a
+          href="insertar_tipo_servicio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--green"
+        >
+          registrar tipo servicio
         </a>
       </div>
     </div>
