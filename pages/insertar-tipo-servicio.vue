@@ -21,7 +21,7 @@
               ></b-form-input>
             </b-form-group>
 
-            <b-form-group id="input-group-3" label="Descripcion:" label-for="descripcion">
+            <b-form-group id="input-group-3" label="Descripción:" label-for="descripcion">
               <b-form-input
                 id="descripcion"
                 v-model="tipo_servicio.descripcion"
