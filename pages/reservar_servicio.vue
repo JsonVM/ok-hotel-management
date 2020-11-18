@@ -65,7 +65,7 @@
             </b-form-group>
 
               <div class ="mx-auto" style="width: 200px;">
-                <b-button type="submit" variant="success">Realizar reserva de servicio</b-button>
+                <b-button type="submit" variant="outline-success">Realizar reserva de servicio</b-button>
               </div> 
 
           </b-form>
@@ -75,4 +75,4 @@
   </div>
 </template>
 
-<script src="@/assets/reservas-servicios.js"/>
+<script src="@/assets/reservas_servicios.js"/>

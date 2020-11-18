@@ -31,7 +31,7 @@
             </b-form-group>
 
               <div class ="mx-auto" style="width: 200px;">
-                <b-button type="submit" variant="success">Registrar tipo servicio</b-button>
+                <b-button type="submit" variant="outline-success">Registrar tipo servicio</b-button>
               </div> 
           </b-form>
         </b-card-body>
@@ -40,4 +40,4 @@
   </div>
 </template>
 
-<script src="@/assets/insertar-tipo-servicio.js"/>
+<script src="@/assets/insertar_tipo_servicio.js"/>

@@ -4,7 +4,7 @@
        <b-img src="../components/logo_servicios.PNG" fluid alt="Responsive image"></b-img>
       <div class="links">
         <a
-          href="ver-servicios"
+          href="ver_servicios"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
@@ -12,7 +12,7 @@
           Ver servicios
         </a>
         <a
-          href="registrar-servicio"
+          href="registrar_servicio"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
@@ -20,7 +20,7 @@
           registrar servicio
         </a>
         <a
-          href="reservas-servicios"
+          href="reservas_servicios"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
@@ -28,7 +28,7 @@
           ver reservas servicios
         </a>
         <a
-          href="reservar-servicio"
+          href="reservar_servicio"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
@@ -37,7 +37,7 @@
         </a>
 
         <a
-          href="insertar-tipo-servicio"
+          href="insertar_tipo_servicio"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"

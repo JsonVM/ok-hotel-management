@@ -13,7 +13,7 @@
             <b-table small responsive hover :items="lista_servicios" :fields="fields">
               <template v-slot:cell(imagen)="row">
                   <div>
-                      <b-button size="sm" @click="cargarImagen(row)" variant="success">imagen</b-button>
+                      <b-button size="sm" @click="cargarImagen(row)" variant="outline-success">imagen</b-button>
                   </div>
               </template>
             </b-table>
@@ -23,5 +23,5 @@
   </div>
 </template>
 
-<script src="@/assets/registrar-servicio.js"/>
+<script src="@/assets/registrar_servicio.js"/>
 <style src="../css/estilos.css" />

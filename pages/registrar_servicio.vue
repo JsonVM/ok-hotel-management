@@ -99,7 +99,7 @@
             </div>
 
               <div class ="mx-auto" style="width: 200px;">
-                <b-button type="submit" variant="success">Registrar servicio</b-button>
+                <b-button type="submit" variant="outline-success">Registrar servicio</b-button>
               </div> 
           </b-form>
         </b-card-body>
@@ -108,4 +108,4 @@
   </div>
 </template>
 
-<script src="@/assets/registrar-servicio.js"/>
+<script src="@/assets/registrar_servicio.js"/>
