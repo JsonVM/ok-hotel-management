@@ -4,7 +4,7 @@ export default {
         return {
             enEdicion: false,
   
-            //En este arreglo se meten todas las habitaciones
+            //En este arreglo se meten todas las habitaciones disponibles
             lista_habitaciones_disponibles: [
                 {
                     id_habitacion: "",
@@ -69,7 +69,7 @@ export default {
         }
 
     },
-    //cuando se carga la pagina se llama el metodo para listar las habitaciones
+    //cuando se carga la pagina se llama el metodo para listar las habitaciones disponibles
     mounted() {
         this.cargarHabitacionesDisponibles()
     },

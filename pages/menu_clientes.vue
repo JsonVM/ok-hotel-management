@@ -3,32 +3,24 @@
     <div>
       <Logo />
       <h1 class="title">
-         HABITACIONES
+         CLIENTES
       </h1>
       <div class="links">
         <a
-          href="insertar_habitacion"
+          href="registrar_cliente"
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
         >
-          Insertar Habitación
+          Insertar cliente
         </a>
         <a
-          href= "listar_habitacion"
+          href= "listar_clientes"
           target="_blank"
           rel="noopener noreferrer"
           class="button--grey"
         >
-          Todas las Habitaciones
-        </a>
-        <a
-          href= "listar_habitacion_disponible"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          Habitaciones Disponibles
+          Todos los clientes
         </a>
       </div>
     </div>

@@ -16,6 +16,8 @@ app.get("/", (req, res) => {
 //ruta con su propio endpoint
 const rutas_habitacion = require("./routes/habitacion");
 app.use(rutas_habitacion);
+const rutas_cliente = require("./routes/cliente");
+app.use(rutas_cliente);
 
 
 // asignar el puerto

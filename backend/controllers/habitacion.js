@@ -6,8 +6,8 @@
 const servicioPg = require("../services/postgres");
 
 /**
- * Guardando el mantenimineto en la base de datos
- * @param {*} habitacion datos del mantenimiento en forma de JSON
+ * Guardando la habitacion en la base de datos
+ * @param {*} habitacion datos de la habitacion en forma de JSON
  */
 let guardarSuEntidadDeDominio = async (habitacion) => {
     try {
