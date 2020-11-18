@@ -16,6 +16,7 @@ export default {
                 precio: "",
                 descripcion: "",
                 imagen: "",
+                estado:"disponible",
                 acciones: true
             },
              show: true

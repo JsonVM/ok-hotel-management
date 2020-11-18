@@ -38,4 +38,19 @@ router.get("/habitaciones", (req, res) => {
       });
 });
 
+/**
+ * Obtener las habitaciones disponibles
+ */
+router.get("/habitaciones_diponibles", (req, res) => { 
+  _controlador.listarSuEntidadDeDominioDisponible().then(respuestaDB => {
+      let registros = respuestaDB.rows;
+      console.log("registros " + registros.info);
+      res.send({ ok: true, info: registros, mensaje: "habitaciones consultadas" });
+    }).catch(error => {
+      res.send(error);
+    });
+});
+
+
+
 module.exports = router;

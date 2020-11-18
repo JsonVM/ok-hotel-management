@@ -2,8 +2,6 @@
 const express = require("express");
 const cors = require("cors");
 
-
-
 //inicializar la libreria
 const app = express();
 app.use(express.json());

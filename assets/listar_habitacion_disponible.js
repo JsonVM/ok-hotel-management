@@ -5,7 +5,7 @@ export default {
             enEdicion: false,
   
             //En este arreglo se meten todas las habitaciones
-            lista_habitaciones: [
+            lista_habitaciones_disponibles: [
                 {
                     id_habitacion: "",
                     tipo_habitacion: "",
@@ -16,7 +16,7 @@ export default {
                     estado:"",
                 }
             ],
-            habitacion: {
+            habitacion_disponible: {
                 id_habitacion: "",
                 tipo_habitacion: "",
                 numero_personas: "",
@@ -55,6 +55,13 @@ export default {
                 {
                     key: 'estado',
                     label: 'Estado'
+                },
+                {
+                    key: 'acciones',
+                    label:'Opciones',
+                    class: 'center'
+                    
+        
                 }
               
             ],
@@ -64,18 +71,18 @@ export default {
     },
     //cuando se carga la pagina se llama el metodo para listar las habitaciones
     mounted() {
-        this.cargarHabitaciones()
+        this.cargarHabitacionesDisponibles()
     },
     methods: {
 
-        cargarHabitaciones() {
-            let url = "http://localhost:3001/habitaciones";
+        cargarHabitacionesDisponibles() {
+            let url = "http://localhost:3001/habitaciones_diponibles";
             axios.get(url).then(respuesta => {
                 let data = respuesta.data
                 
                 if (data.ok) {
-                    this.lista_habitaciones = data.info
-                    console.log("lista: " + this.lista_habitaciones.data)
+                    this.lista_habitaciones_disponibles = data.info
+                    console.log("lista: " + this.lista_habitaciones_disponibles.data)
                 }
                 this.mensaje = data.mensaje;
                 console.log(respuesta);
