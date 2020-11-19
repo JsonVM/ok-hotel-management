@@ -55,7 +55,7 @@
             <b-form-group label= "Tipo de servicio:">
               <div>
                 <b-form-select v-model="servicio.tipo_servicio" :options="tipo_servicio"></b-form-select>
-                <b-button variant="success">Agregar tipo de servicio</b-button>
+                <b-button href="insertar_tipo_servicio" variant="success">Agregar tipo de servicio</b-button>
               </div>
             </b-form-group>
             <div>
