@@ -18,7 +18,6 @@ class ServicioPG {
  */
 async ejecutarSql(sql) {
     let respuesta = await this.pool.query(sql);
-    console.log("se conecto a la BD");
     return respuesta;
   }
 }

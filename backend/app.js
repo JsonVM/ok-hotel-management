@@ -13,14 +13,18 @@ app.get("/", (req, res) => {
   });
 
 
-//ruta con su propio endpoint
+//rutas con sus propios endpoint
 const rutas_habitacion = require("./routes/habitacion");
-app.use(rutas_habitacion);
 const rutas_cliente = require("./routes/cliente");
-app.use(rutas_cliente);
 const reservas = require("./routes/reserva");
-app.use(reservas);
+const servicios = require('./routes/servicios');
+const reservas_servicios = require('./routes/reservas_servicios');
 
+app.use(rutas_habitacion);
+app.use(rutas_cliente);
+app.use(reservas);
+app.use(servicios);
+app.use(reservas_servicios);
 
 // asignar el puerto
 const port = 3001;
