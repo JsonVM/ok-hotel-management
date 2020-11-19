@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-       <b-img src="../components/logo_verde.PNG" fluid alt="Responsive image"></b-img>
+       <b-img src="../components/logo_verde.PNG" fluid alt="Responsive image" width="600px" height="400"></b-img>
       <div class="links">
         <a
           href="menu_clientes"
@@ -17,7 +17,7 @@
           rel="noopener noreferrer"
           class="button--green"
         >
-          menú servicios
+          Menú servicios
         </a>
         <a
           href="menu_habitaciones"
