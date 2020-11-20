@@ -32,7 +32,8 @@ export default {
         { value: "5", text: "Alimentacion" }*/
     ],
 
-      show: true
+      show: true,
+      actualizando:false
     }
   },
 
@@ -134,6 +135,41 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+
+    cargarModificarReservaServicio({item}){
+      this.actualizando = true;
+      let i = item.id;
+      let url = "http://localhost:3001/reserva-servicio/" + i;
+      axios.get(url).then(respuesta => {
+        let data = respuesta.data
+        if (data.ok) {
+          this.reserva_servicio = data.info[0];
+          console.log(this.reserva_servicio);
+        }
+        this.mensaje = data.mensaje;
+        console.log(respuesta);
+      }).catch(error => {
+        console.log(this.mensaje = "Ha ocurrido un error")
+      });
+    },
+
+    modificarReservaServicio(){
+      let i = this.reserva_servicio.id;
+      let url = "http://localhost:3001/reservas-servicios/" + i;
+      axios.put(url, this.reserva_servicio).then((response) => {
+        console.log("la reserva de servicio fue modificada correctamente");
+        alert("La reserva de servicio fue modificada correctamente");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("No se pudo modificar la reserva de servicio " + " ---Error: " + error + "---");
+      });
+
+    this.cargar(this.cc);
+    this.vacear();
+    this.actualizando = false;
     }
   }
 };

@@ -24,6 +24,21 @@ let consultarReservasServicios = async (cc) => {
 }
 
 /**
+ * Metodo para consultar una reserva servicio especifico
+ * @param {*} id el id de la reserva
+ */
+let consultarUnaReservaServicio = async (id) => {
+  try {
+      let _servicio = new servicioPg()
+      let sql = `select * from reservas_servicios where id = ${id}`;
+      let respuesta = await _servicio.ejecutarSql(sql);
+      return respuesta;
+  } catch (error) {
+      throw{ok: false, err: error };
+  }
+}
+
+/**
  * Metodo para reservar un servicio por el cliente
  * @param {*} reserva_servicio los datos de la reserva
  */
@@ -59,4 +74,31 @@ let eliminarReservaServicio = async (id) => {
     }
   };
 
-module.exports = {consultarReservasServicios, guardarReservaServicio, eliminarReservaServicio};
+  let modificarReservaServicio = async (reserva_servicio, id) => {
+    if (reserva_servicio.id != id) {
+      throw {
+        ok: false,
+        mensaje: "el id de la reserva no corresponde al enviado.",
+      };
+    }
+    try{
+        let _servicio = new servicioPg();
+        let sql = `UPDATE public.reservas_servicios set
+        id_servicio=${reserva_servicio.id_servicio}, 
+        cc_cliente='${reserva_servicio.cc_cliente}', 
+        fecha_inicio='${reserva_servicio.fecha_inicio}', 
+        fecha_fin='${reserva_servicio.fecha_fin}', 
+        hora_inicio='${reserva_servicio.hora_inicio}', 
+        hora_fin='${reserva_servicio.hora_fin}'
+        WHERE id = ${id}`;
+
+        let respuesta = await _servicio.ejecutarSql(sql);
+        return respuesta;
+
+    } catch(error) {
+        throw{ok: false ,
+        err: error}
+    }
+  };
+module.exports = {consultarReservasServicios, consultarUnaReservaServicio, guardarReservaServicio,
+   eliminarReservaServicio, modificarReservaServicio};

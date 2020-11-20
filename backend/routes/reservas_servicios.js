@@ -16,6 +16,19 @@ router.get('/reservas-servicios/:cc', (req, res) =>{
 });
 
 /**
+ * Consultar una reserva de servicio
+ */
+router.get('/reserva-servicio/:id', (req, res) =>{
+  let id = req.params.id;
+  _controlador.consultarUnaReservaServicio(id).then(respuestaDB => {
+      let registros = respuestaDB.rows;
+      res.send({ ok: true, info: registros, mensaje: "reserva de servicio consultado correctamente" });
+  }).catch(error => {
+      res.send(error);
+  });
+});
+
+/**
  * Ruta para poder hacer el post en el api (insertar una reserva de servicio)
  */
 router.post("/reservas-servicios", (req, res) => {
@@ -43,6 +56,22 @@ router.delete("/reservas-servicios/:id", (req, res) => {
     })
     .catch((error) => {
       res.send(" Ocurrió un error: "+ error);
+    });
+});
+
+/**
+ * Modificar una reserva de servicio
+ */
+router.put("/reservas-servicios/:id", (req, res) => {
+  let id = req.params.id;
+  let reserva_servicio = req.body;
+  _controlador
+    .modificarReservaServicio(reserva_servicio, id)
+    .then((respuestaDB) => {
+      res.send({ ok: true, mensaje: "la reserva de servicio ha sido modificada correctamente", info: respuestaDB });
+    })
+    .catch((error) => {
+      res.send(error);
     });
 });
 
