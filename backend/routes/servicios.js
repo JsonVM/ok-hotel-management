@@ -70,4 +70,19 @@ router.post("/servicios", (req, res) => {
     }
   });
 
+/**
+ * Eliminar un servicio
+ */
+router.delete("/servicios/:id", (req, res) => {
+  let id = req.params.id;
+  _controlador
+    .eliminarServicio(id)
+    .then((respuestaDB) => {
+      res.send({ ok: true, info: {}, mensaje: "servicio eliminado correctamente" });
+    })
+    .catch((error) => {
+      res.send(" Ocurrió un error: "+ error);
+    });
+});
+
 module.exports = router;

@@ -172,6 +172,22 @@ export default {
       }).catch(error => {
         console.log(this.mensaje = "Ha ocurrido un error")
       });
+    },
+
+    eliminarServicio({item}) {
+      let i = item.id;
+      let direccion = "http://localhost:3001/servicios/" + i;
+      axios
+        .delete(direccion)
+        .then((response) => {
+          console.log("reserva eliminada correctamente");
+          alert("reserva eliminada correctamente");
+          this.cargar();
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 };

@@ -87,4 +87,17 @@ let guardarTipoServicio = async (tipo_servicio)=> {
     }
 }
 
-module.exports = {guardarServicio, consultarServicios, consultarTipoServicio, consultarListaServicios, guardarTipoServicio};
+let eliminarServicio = async (id) => {
+    try {
+      let _servicio = new servicioPg();
+      let sql = `DELETE FROM public.servicios
+      WHERE id =${id}`;
+      let respuesta = await _servicio.ejecutarSql(sql);
+      return respuesta;
+    } catch (error) {
+      throw { ok: false , err:error};
+    }
+  };
+
+module.exports = {guardarServicio, consultarServicios, consultarTipoServicio,
+     consultarListaServicios, guardarTipoServicio, eliminarServicio};
