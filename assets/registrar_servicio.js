@@ -43,9 +43,7 @@ export default {
       //aqui se almacenan los servicios en forma de lista
       lista_servicios: [{}],
 
-      //para la progress bar
-      progreso:0,
-    show: true
+      actualizando:false
     }
   },
 
@@ -188,6 +186,41 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+
+    cargarModificarServicio({item}){
+      this.actualizando = true;
+      let i = item.id;
+      let url = "http://localhost:3001/servicios/" + i;
+      axios.get(url).then(respuesta => {
+        let data = respuesta.data
+        if (data.ok) {
+          this.servicio = data.info[0];
+          console.log(this.servicio);
+        }
+        this.mensaje = data.mensaje;
+        console.log(respuesta);
+      }).catch(error => {
+        console.log(this.mensaje = "Ha ocurrido un error")
+      });
+    },
+
+    modificarServicio(){
+      let i = this.servicio.id;
+      let url = "http://localhost:3001/servicios/" + i;
+      axios.put(url, this.servicio).then((response) => {
+        console.log("El servicio fue modificado correctamente");
+        alert("El servicio fue modificado correctamente");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("No se pudo modificar el servicio " + " ---Error: " + error + "---");
+      });
+
+    this.vacear();
+    this.cargar();
+    this.actualizando = false;
     }
   }
 };

@@ -15,6 +15,19 @@ router.get('/servicios', (req, res) =>{
 });
 
 /**
+ * Ruta para poder hacer get en el api (consultar un servicio)
+ */
+router.get('/servicios/:id', (req, res) =>{
+  let id = req.params.id;
+  _controlador.consultarUnServicio(id).then(respuestaDB => {
+      let registros = respuestaDB.rows;
+      res.send({ ok: true, info: registros, mensaje: "servicio consultados correctamente" });
+  }).catch(error => {
+      res.send(error);
+  });
+});
+
+/**
  * ruta para omar la lista de los servicios que hay
  */
 router.get('/lista-servicios', (req, res) =>{
@@ -82,6 +95,22 @@ router.delete("/servicios/:id", (req, res) => {
     })
     .catch((error) => {
       res.send(" Ocurrió un error: "+ error);
+    });
+});
+
+/**
+ * Modificar un servicio
+ */
+router.put("/servicios/:id", (req, res) => {
+  let id = req.params.id;
+  let servicio = req.body;
+  _controlador
+    .modificarServicio(servicio, id)
+    .then((respuestaDB) => {
+      res.send({ ok: true, mensaje: "el servicio ha sido modificado correctamente", info: respuestaDB });
+    })
+    .catch((error) => {
+      res.send(error);
     });
 });
 

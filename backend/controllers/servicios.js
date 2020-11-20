@@ -41,6 +41,20 @@ let consultarServicios = async () => {
 }
 
 /**
+ * Metodo para consultar un servicio con el id
+ */
+let consultarUnServicio = async (id) => {
+    try {
+        let _servicio = new servicioPg()
+        let sql = `SELECT * from servicios where id = ${id}`;
+        let respuesta = await _servicio.ejecutarSql(sql);
+        return respuesta;
+    } catch (error) {
+        throw{ok: false, err: error };
+    }
+}
+
+/**
  * Metodo para tomar la lista de servicios que puede reservar el usuario
  */
 let consultarListaServicios = async () => {
@@ -99,5 +113,32 @@ let eliminarServicio = async (id) => {
     }
   };
 
-module.exports = {guardarServicio, consultarServicios, consultarTipoServicio,
-     consultarListaServicios, guardarTipoServicio, eliminarServicio};
+  let modificarServicio = async (servicio, id) => {
+    if (servicio.id != id) {
+      throw {
+        ok: false,
+        mensaje: "el id del servicio no corresponde al enviado.",
+      };
+    }
+    try{
+        let _servicio = new servicioPg();
+        let sql = `UPDATE public.servicios set
+        hora_inicio='${servicio.hora_inicio}',
+        hora_fin='${servicio.hora_fin}',
+        tipo_servicio='${servicio.tipo_servicio}',
+        imagen='${servicio.imagen}',
+        num_personas=${servicio.num_personas},
+        nombre='${servicio.nombre}'
+        WHERE id = ${id}`;
+
+        let respuesta = await _servicio.ejecutarSql(sql);
+        return respuesta;
+
+    } catch(error) {
+        throw{ok: false ,
+        err: error}
+    }
+  };
+
+module.exports = {guardarServicio, consultarServicios, consultarUnServicio, consultarTipoServicio,
+     consultarListaServicios, guardarTipoServicio, eliminarServicio, modificarServicio};
