@@ -8,10 +8,13 @@ const servicioPg = require('../services/postgres');
 let consultarReservasServicios = async (cc) => {
     try {
         let _servicio = new servicioPg()
-        let sql = `SELECT reservas_servicios.id, id_servicio, cc_cliente, fecha_inicio, fecha_fin, reservas_servicios.hora_inicio, 
-        reservas_servicios.hora_fin, imagen, nombre
-            FROM public.reservas_servicios
-            inner join servicios on id_servicio = servicios.id
+        let sql = `SELECT reservas_servicios.id, id_servicio, cc_cliente,
+        to_char(fecha_inicio, 'YYYY-MM-DD') as fecha_inicio, to_char(fecha_fin, 'YYYY-MM-DD') fecha_fin,
+        to_char(reservas_servicios.hora_inicio, 'HH:MM') as hora_inicio, 
+        to_char(reservas_servicios.hora_fin, 'HH:MM') as hora_fin, 
+        imagen, nombre
+        FROM public.reservas_servicios
+        inner join servicios on id_servicio = servicios.id
             where cc_cliente = '${cc}'`;
         let respuesta = await _servicio.ejecutarSql(sql);
         return respuesta;
@@ -44,4 +47,16 @@ let guardarReservaServicio = async (reserva_servicio)=> {
     }
 }
 
-module.exports = {consultarReservasServicios, guardarReservaServicio};
+let eliminarReservaServicio = async (id) => {
+    try {
+      let _servicio = new servicioPg();
+      let sql = `DELETE FROM public.reservas_servicios
+      WHERE id =${id}`;
+      let respuesta = await _servicio.ejecutarSql(sql);
+      return respuesta;
+    } catch (error) {
+      throw { ok: false , err:error};
+    }
+  };
+
+module.exports = {consultarReservasServicios, guardarReservaServicio, eliminarReservaServicio};

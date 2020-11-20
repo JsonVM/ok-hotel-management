@@ -31,4 +31,19 @@ router.post("/reservas-servicios", (req, res) => {
     }
   });
 
+  /**
+ * Eliminar una reserva de servicio
+ */
+router.delete("/reservas-servicios/:id", (req, res) => {
+  let id = req.params.id;
+  _controlador
+    .eliminarReservaServicio(id)
+    .then((respuestaDB) => {
+      res.send({ ok: true, info: {}, mensaje: "servicio eliminado correctamente" });
+    })
+    .catch((error) => {
+      res.send(" Ocurrió un error: "+ error);
+    });
+});
+
 module.exports = router;

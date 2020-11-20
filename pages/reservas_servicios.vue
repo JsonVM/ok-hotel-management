@@ -25,6 +25,7 @@
               <template v-slot:cell(imagen)="row">
                   <div>
                       <b-button size="sm" @click="cargarImagen(row)" variant="outline-success">imagen</b-button>
+                      <b-button size="sm" @click="eliminarReserva(row)" variant="outline-danger">eliminar</b-button>
                   </div>
               </template>
             </b-table>
