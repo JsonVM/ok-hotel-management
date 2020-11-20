@@ -23,7 +23,7 @@
             <div>
               <b-button
                 size="sm"
-                @click="cargarMantenimientosEditar(row)"
+                @click="hola(row.item)"
                 block
                 variant="outline-success"
                 class="mr-2"

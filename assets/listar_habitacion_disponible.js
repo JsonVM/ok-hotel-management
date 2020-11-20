@@ -91,5 +91,9 @@ export default {
             });
 
         },
+        async hola(row){
+            console.log(row.id_habitacion);
+            this.$router.push({path: '/registro_reserva', query: {param: row.id_habitacion}});
+        }
     }
 };

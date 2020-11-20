@@ -21,6 +21,7 @@ router.post("/reserva", (req, res) => {
   try {
     let reserva = req.body;
     _controlador.validarReserva(reserva);
+    //_controlador.validarCedula(reserva);
 
     _controlador.guardarReserva(reserva).then(respuestaDB => {
         res.send({ ok: true, mensaje: "reserva guardada", info: reserva});
